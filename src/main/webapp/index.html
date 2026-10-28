@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Feedback Form | AIP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+
+  <main class="container">
+    <section class="card">
+      <div class="eyebrow"><span class="dot"></span> AIP PROJECT &middot; PROJECT I</div>
+      <h1>We'd love your <span class="grad">feedback</span></h1>
+      <p class="intro">Tell us what you think. Your response is sent to a Java Servlet running on Apache Tomcat.</p>
+
+      <!-- Method switch: demonstrates both GET and POST -->
+      <div class="method-switch" role="tablist" aria-label="Request method">
+        <button type="button" class="m-btn active" data-method="post" role="tab">POST</button>
+        <button type="button" class="m-btn" data-method="get" role="tab">GET</button>
+        <span class="m-slider"></span>
+      </div>
+      <p class="method-hint" id="methodHint">POST sends data in the request body (recommended).</p>
+
+      <form id="feedbackForm" action="feedback" method="post" novalidate>
+        <div class="row">
+          <div class="field">
+            <input id="name" name="name" type="text" maxlength="80" placeholder=" " required>
+            <label for="name">Full name</label>
+            <small class="err">Please enter your name.</small>
+          </div>
+          <div class="field">
+            <input id="email" name="email" type="email" maxlength="120" placeholder=" " required>
+            <label for="email">Email address</label>
+            <small class="err">Enter a valid email address.</small>
+          </div>
+        </div>
+
+        <div class="field select">
+          <select id="category" name="category">
+            <option>General</option>
+            <option>Design / UI</option>
+            <option>Performance</option>
+            <option>Bug report</option>
+            <option>Suggestion</option>
+          </select>
+          <label for="category">Category</label>
+        </div>
+
+        <div class="rating-block">
+          <span class="rating-label">How would you rate us?</span>
+          <div class="stars" role="radiogroup" aria-label="Rating">
+            <input type="radio" id="s5" name="rating" value="5"><label for="s5" title="Excellent">&#9733;</label>
+            <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="Very good">&#9733;</label>
+            <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="Good">&#9733;</label>
+            <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="Fair">&#9733;</label>
+            <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="Poor">&#9733;</label>
+          </div>
+          <span class="rating-text" id="ratingText">Tap a star</span>
+          <small class="err" id="ratingErr">Please choose a rating.</small>
+        </div>
+
+        <div class="field">
+          <textarea id="feedback" name="feedback" rows="5" maxlength="2000" placeholder=" " required></textarea>
+          <label for="feedback">Your feedback</label>
+          <small class="err">Please write some feedback.</small>
+          <span class="counter"><span id="count">0</span> / 2000</span>
+        </div>
+
+        <button type="submit" class="btn submit" id="submitBtn">
+          <span class="btn-text">Submit using POST</span>
+          <span class="spinner"></span>
+        </button>
+      </form>
+
+      <p class="footer-note">HTML Form &middot; Java Servlet &middot; GET &amp; POST &middot; Client&ndash;Server Architecture</p>
+      <p class="credit">Chhavi Sharma &middot; UID 26MCI10155</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
